@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/thanhlam2034/POM']])
+                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Vu-Nhat-Tran/Playwright.git']])
             }
         }
         stage('Install') {
@@ -19,7 +19,7 @@ pipeline {
         stage('Testing') {
             steps {
                 bat '''
-                    npx playwright test testwithoutPOM.spec.ts --project=chromium
+                    npx playwright test S5_TC002.spec.ts --project=chrome --headed
                 '''
             }
         }
